@@ -1,0 +1,47 @@
+.container{
+
+  background-color: black;
+  background-image: linear-gradient( black, rgb(8, 150, 185) 60%);
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 320px;
+  overflow: hidden;
+}
+
+
+
+li {
+  margin-right: 20px;
+  display: inline;
+  border: 2px solid rgba(33, 68, 72, 0.59);
+  box-shadow: 0 0 30px #60a5ca;
+  //background-color: rgb(40, 133, 133);
+  background-image: linear-gradient( rgb(39, 108, 153), rgb(8, 150, 185) 50%);
+  //border-radius:1em 4em 1em 4em;
+
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+.active {
+  color: rgb(213, 75, 167);
+}
+
+
+.circle {
+
+  width: 600px;
+  height: 600px;
+  border-radius: 100%;
+  background-color: gold;
+  box-shadow: 0 0 60px 20px #ffffff;
+  margin-bottom: -300px;
+  margin-top: 100px;
+
+  //margin-left: auto;
+  //margin-right: auto;
+}
+
+

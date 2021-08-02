@@ -1,0 +1,19 @@
+<div class="formClass">
+  <form [formGroup]="form">
+    <select data-cy="select" formControlName="planetsSelection" required>
+      <option *ngFor='let planet of allPlanets | async' [value]="planet.url">
+        {{planet.name}}
+      </option>
+    </select>
+    <p data-cy="error" class="error" *ngIf="form.status === 'INVALID'">
+      Choose your planet :) </p>
+  </form>
+</div>
+
+<div *ngIf="planets | async as planet">
+  <h1 class="h1" data-cy="name">{{ planet.name }}</h1>
+  <h2 class="h2" data-cy="clim">Climate: {{planet.climate}} </h2>
+  <h2 class="h2" data-cy="terr">Tarrain: {{planet.terrain}} </h2>
+  <h2 class="h2" data-cy="water">Water source: {{planet.surface_water}} </h2>
+  <h2 class="h2" data-cy="day">Day lenght: {{planet.rotation_period}} h</h2>
+</div>

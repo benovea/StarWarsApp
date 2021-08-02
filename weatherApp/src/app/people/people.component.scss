@@ -1,0 +1,50 @@
+.formClass {
+
+  margin:auto;
+  text-align: center;
+  padding: 20px;
+
+}
+
+.error {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 2px 2px 7px #666666;
+  font-weight: bold;
+
+}
+
+.formClass select {
+
+  text-shadow: 1px 1px 3px #666666;
+  // letter-spacing: 0.5em;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(210, 247, 247);
+
+}
+
+.tryWord {
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #666666;
+
+}
+
+
+.h1 {     // . - odwolanie do klasy, mozna potem kilka razy dwolywac sie do tego, a nie raz
+  color: white;
+  font-size: 3em;
+  font-family: 'Comic Sans MS', sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.h2 {
+
+  font-family: 'Comic Sans MS', sans-serif;
+  color: white;
+  text-align: center;
+  margin: 5px;
+
+}
