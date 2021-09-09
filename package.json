@@ -1,5 +1,6 @@
 {
   "devDependencies": {
-    "cypress": "^6.6.0"
+    "cypress": "^6.6.0",
+    "karma-spec-reporter": "0.0.32"
   }
 }
