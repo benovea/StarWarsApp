@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { PlanetsModule } from './planets/planets.module';
 import { PeopleModule } from './people/people.module';
 
-fdescribe('AppRoutingModule', () => {
+describe('AppRoutingModule', () => {
   let component: AppRoutingModule;
   let router: Router;
   let location: Location;
