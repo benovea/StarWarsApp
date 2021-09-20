@@ -1,18 +1,30 @@
 import {
   ComponentFixture,
   ComponentFixtureAutoDetect,
+  fakeAsync,
   TestBed,
+  tick,
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { mockPeople, PeopleTestingModule } from './people-testing.module';
 import { PeopleComponentClass } from './people.component';
+
 describe('PeopleComponent', () => {
   let component: PeopleComponentClass;
   let fixture: ComponentFixture<PeopleComponentClass>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, PeopleTestingModule],
+      imports: [
+        ReactiveFormsModule,
+        PeopleTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'people', component: PeopleTestingModule },
+        ]),
+      ],
       declarations: [PeopleComponentClass],
       providers: [
         {
@@ -27,18 +39,24 @@ describe('PeopleComponent', () => {
     fixture = TestBed.createComponent(PeopleComponentClass);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    router = TestBed.inject(Router);
+    router.initialNavigation();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show relevant data', () => {
+  it('should show relevant data', fakeAsync(() => {
     component.form2.patchValue({
       peopleSelection: 'foo',
     });
 
     fixture.detectChanges();
+
+    router.navigate(['people', mockPeople.name]);
+    tick();
 
     const name: HTMLHeadingElement =
       fixture.nativeElement.querySelector('[data-cy="name"]');
@@ -56,5 +74,5 @@ describe('PeopleComponent', () => {
     expect(eye.innerText).toContain(mockPeople.eye_color);
     expect(birth.innerText).toContain(mockPeople.birth_year);
     expect(gender.innerText).toContain(mockPeople.gender);
-  });
+  }));
 });
