@@ -46,13 +46,12 @@ describe('PeopleComponent', () => {
     //   peopleSelection: 'foo',
     // });
 
-    fixture.detectChanges();
     tick();
     fixture.detectChanges();
 
     // const name = fixture.debugElement.query(By.css('.foo'));
     const foo =
-      fixture.debugElement.nativeElement.querySelector('[data-cy="name"]');
+      fixture.debugElement.nativeElement.querySelector("[data-cy='name']");
 
     // const hair: HTMLHeadingElement =
     //   fixture.nativeElement.querySelector('[data-cy="hair"]');
@@ -64,7 +63,8 @@ describe('PeopleComponent', () => {
     //   fixture.nativeElement.querySelector('[data-cy="gender"]');
 
     expect(foo.textContent).toContain(mockPeople.name);
-    expect(foo.innerText).toContain(mockPeople.name);
+    // expect(foo.innerText).toContain(mockPeople.name);
+
     // expect(hair.innerText).toContain(mockPeople.hair_color);
     // expect(eye.innerText).toContain(mockPeople.eye_color);
     // expect(birth.innerText).toContain(mockPeople.birth_year);
