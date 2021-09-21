@@ -6,7 +6,7 @@ import { PlanetRoutingModule } from './planets.routing.module';
 import { PlanetsComponent } from './planets.component';
 
 @NgModule({
-  declarations:[
+  declarations: [
     PlanetsComponent
   ],
   imports: [
@@ -14,7 +14,7 @@ import { PlanetsComponent } from './planets.component';
     ReactiveFormsModule,
     PlanetRoutingModule
   ],
-  exports:[PlanetsComponent]
+  exports: [PlanetsComponent]
 
 })
 

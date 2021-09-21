@@ -7,19 +7,17 @@ import { PeopleData } from './PeopleData';
 import { PeopleService } from './people.service';
 
 export const mockPeople: PeopleData = {
-
   url: 'http:',
   name: 'Luke Skywalker',
-	hair_color: 'blond',
-	eye_color: 'blue',
-	birth_year: '19BBY',
-	gender: 'male'
-
+  hair_color: 'blond',
+  eye_color: 'blue',
+  birth_year: '19BBY',
+  gender: 'male',
 };
 
 const mockPeopleService: Partial<PeopleService> = {
   getPeople: () => {
-    return of([mockPeople])
+    return of([mockPeople]);
   },
   getAllPeople: (url: string) => {
     return of(mockPeople);
@@ -29,20 +27,16 @@ const mockPeopleService: Partial<PeopleService> = {
   },
   findPeopleByUrl: (url: string) => {
     return of(mockPeople);
-  }
-}
+  },
+};
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientTestingModule,
-    RouterTestingModule
-  ],
+  imports: [CommonModule, HttpClientTestingModule, RouterTestingModule],
   providers: [
     {
       provide: PeopleService,
-      useValue: mockPeopleService
-    }
-  ]
+      useValue: mockPeopleService,
+    },
+  ],
 })
 export class PeopleTestingModule {}

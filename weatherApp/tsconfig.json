@@ -1,8 +1,4 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "types": [
-    "jest"
-  ],
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -15,6 +11,9 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
+    "types": [
+      "jest"
+    ],
     "lib": [
       "es2018",
       "dom"
