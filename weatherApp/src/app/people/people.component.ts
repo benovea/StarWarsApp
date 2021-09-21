@@ -11,8 +11,6 @@ import { PeopleData } from './PeopleData';
   templateUrl: './people.component.html',
   styleUrls: ['./people.component.scss'],
 })
-
-// tslint:disable-next-line: component-class-suffix
 export class PeopleComponentClass implements OnInit {
   constructor(
     private peopleService: PeopleService,

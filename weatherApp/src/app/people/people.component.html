@@ -1,23 +1,20 @@
-
 <div class="formClass">
   <form [formGroup]="form2">
     <select formControlName="peopleSelection" required>
-      <option *ngFor='let people of allPeople | async' [value]="people.url">
-        {{people.name}}
+      <option *ngFor="let people of allPeople | async" [value]="people.url">
+        {{ people.name }}
       </option>
     </select>
     <p data-cy="error" class="error" *ngIf="form2.status === 'INVALID'">
-      Choose :) </p>
+      Choose :)
+    </p>
   </form>
 </div>
 
-
-
 <div *ngIf="people | async as p">
-
   <h1 class="h1" data-cy="name">{{ p.name }}</h1>
-  <h2 class="h2" data-cy="hair">Hair: {{p.hair_color}} </h2>
-  <h2 class="h2" data-cy="eyes">Eyes: {{p.eye_color}} </h2>
-  <h2 class="h2" data-cy="birth">Birth year: {{p.birth_year}} </h2>
-  <h2 class="h2" data-cy="gender">Gender: {{p.gender}} </h2>
+  <h2 class="h2" data-cy="hair">Hair: {{ p.hair_color }}</h2>
+  <h2 class="h2" data-cy="eyes">Eyes: {{ p.eye_color }}</h2>
+  <h2 class="h2" data-cy="birth">Birth year: {{ p.birth_year }}</h2>
+  <h2 class="h2" data-cy="gender">Gender: {{ p.gender }}</h2>
 </div>

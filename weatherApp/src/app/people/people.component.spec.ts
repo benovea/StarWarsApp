@@ -19,7 +19,7 @@ describe('PeopleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, PeopleTestingModule],
+      imports: [ReactiveFormsModule, PeopleTestingModule, RouterTestingModule],
       declarations: [PeopleComponentClass],
       providers: [
         {
@@ -33,6 +33,7 @@ describe('PeopleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PeopleComponentClass);
     component = fixture.componentInstance;
+    component.people = of(mockPeople);
     fixture.detectChanges();
   });
 
@@ -45,11 +46,13 @@ describe('PeopleComponent', () => {
     //   peopleSelection: 'foo',
     // });
 
-    component.people = of(mockPeople);
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
 
-    const name = fixture.debugElement.query(
-      By.css('[data-cy="name"]')
-    ).nativeElement;
+    // const name = fixture.debugElement.query(By.css('.foo'));
+    const foo =
+      fixture.debugElement.nativeElement.querySelector('[data-cy="name"]');
 
     // const hair: HTMLHeadingElement =
     //   fixture.nativeElement.querySelector('[data-cy="hair"]');
@@ -59,9 +62,9 @@ describe('PeopleComponent', () => {
     //   fixture.nativeElement.querySelector('[data-cy="birth"]');
     // const gender: HTMLHeadingElement =
     //   fixture.nativeElement.querySelector('[data-cy="gender"]');
-    console.log(name);
 
-    expect(name.innerText).toContain(mockPeople.name);
+    expect(foo.textContent).toContain(mockPeople.name);
+    expect(foo.innerText).toContain(mockPeople.name);
     // expect(hair.innerText).toContain(mockPeople.hair_color);
     // expect(eye.innerText).toContain(mockPeople.eye_color);
     // expect(birth.innerText).toContain(mockPeople.birth_year);
