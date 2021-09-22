@@ -7,7 +7,6 @@ import {
   tick,
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { mockPeople, PeopleTestingModule } from './people-testing.module';
 import { PeopleComponentClass } from './people.component';
@@ -18,7 +17,7 @@ describe('PeopleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, PeopleTestingModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, PeopleTestingModule],
       declarations: [PeopleComponentClass],
       providers: [
         {

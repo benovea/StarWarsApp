@@ -1,4 +1,3 @@
-// tslint:disable: quotemark
 import {
   ComponentFixture,
   ComponentFixtureAutoDetect,
@@ -34,7 +33,6 @@ describe('PlanetsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PlanetsComponent);
     component = fixture.componentInstance;
-    component.planets = of(mockPlanet);
     fixture.detectChanges();
   });
 
@@ -43,26 +41,22 @@ describe('PlanetsComponent', () => {
   });
 
   it('should show relevant data', fakeAsync(() => {
+    component.planets = of(mockPlanet);
+
     tick();
     fixture.detectChanges();
 
-    // const name: HTMLHeadingElement =
-    //   fixture.nativeElement.querySelector('[data-cy="name"]');
+    const name: HTMLHeadingElement =
+      fixture.nativeElement.querySelector('[data-cy="name"]');
 
-    const name =
-      fixture.debugElement.nativeElement.querySelector("[data-cy='name']");
-
-    const clim =
-      fixture.debugElement.nativeElement.querySelector("[data-cy='clim']");
-
-    const terr =
-      fixture.debugElement.nativeElement.querySelector("[data-cy='terr']");
-
-    const water =
-      fixture.debugElement.nativeElement.querySelector("[data-cy='water']");
-
-    const day =
-      fixture.debugElement.nativeElement.querySelector("[data-cy='day']");
+    const clim: HTMLHeadingElement =
+      fixture.nativeElement.querySelector('[data-cy="clim"]');
+    const terr: HTMLHeadingElement =
+      fixture.nativeElement.querySelector('[data-cy="terr"]');
+    const water: HTMLHeadingElement =
+      fixture.nativeElement.querySelector('[data-cy="water"]');
+    const day: HTMLHeadingElement =
+      fixture.nativeElement.querySelector('[data-cy="day"]');
 
     expect(name.textContent).toContain(mockPlanet.name);
     expect(clim.textContent).toContain(mockPlanet.climate);
