@@ -8,7 +8,7 @@ import { PeopleRoutingModule, routes } from './people.routing.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 fdescribe('PeopleRoutingModule', () => {
-  let component: PeopleRoutingModule;
+  let component: PeopleComponentClass;
   let router: Router;
   let location: Location;
   let fixture;
@@ -43,6 +43,4 @@ fdescribe('PeopleRoutingModule', () => {
 
     expect(location.path()).toBe('/R2-D2');
   }));
-
-
 });

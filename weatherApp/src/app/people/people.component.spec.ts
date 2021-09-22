@@ -1,3 +1,4 @@
+// tslint:disable: quotemark
 import {
   ComponentFixture,
   ComponentFixtureAutoDetect,
@@ -6,8 +7,6 @@ import {
   tick,
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { mockPeople, PeopleTestingModule } from './people-testing.module';
@@ -50,24 +49,28 @@ describe('PeopleComponent', () => {
     fixture.detectChanges();
 
     // const name = fixture.debugElement.query(By.css('.foo'));
-    const foo =
+    const name =
       fixture.debugElement.nativeElement.querySelector("[data-cy='name']");
 
-    // const hair: HTMLHeadingElement =
-    //   fixture.nativeElement.querySelector('[data-cy="hair"]');
-    // const eye: HTMLHeadingElement =
-    //   fixture.nativeElement.querySelector('[data-cy="eyes"]');
-    // const birth: HTMLHeadingElement =
-    //   fixture.nativeElement.querySelector('[data-cy="birth"]');
-    // const gender: HTMLHeadingElement =
-    //   fixture.nativeElement.querySelector('[data-cy="gender"]');
+    const hair =
+      fixture.debugElement.nativeElement.querySelector("[data-cy='hair']");
 
-    expect(foo.textContent).toContain(mockPeople.name);
+    const eye =
+      fixture.debugElement.nativeElement.querySelector("[data-cy='eyes']");
+
+    const birth =
+      fixture.debugElement.nativeElement.querySelector("[data-cy='birth']");
+
+    const gender =
+      fixture.debugElement.nativeElement.querySelector("[data-cy='gender']");
+
+    expect(name.textContent).toContain(mockPeople.name);
     // expect(foo.innerText).toContain(mockPeople.name);
+    expect(hair.textContent).toContain(mockPeople.hair_color);
 
-    // expect(hair.innerText).toContain(mockPeople.hair_color);
-    // expect(eye.innerText).toContain(mockPeople.eye_color);
-    // expect(birth.innerText).toContain(mockPeople.birth_year);
-    // expect(gender.innerText).toContain(mockPeople.gender);
+    expect(hair.textContent).toContain(mockPeople.hair_color);
+    expect(eye.textContent).toContain(mockPeople.eye_color);
+    expect(birth.textContent).toContain(mockPeople.birth_year);
+    expect(gender.textContent).toContain(mockPeople.gender);
   }));
 });
