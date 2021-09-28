@@ -8,6 +8,7 @@ import {
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
+import { GenderEmojiPipe } from './gender-emoji.pipe';
 import { mockPeople, PeopleTestingModule } from './people-testing.module';
 import { PeopleComponentClass } from './people.component';
 
@@ -18,7 +19,7 @@ describe('PeopleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, PeopleTestingModule],
-      declarations: [PeopleComponentClass],
+      declarations: [PeopleComponentClass, GenderEmojiPipe],
       providers: [
         {
           provide: ComponentFixtureAutoDetect,
