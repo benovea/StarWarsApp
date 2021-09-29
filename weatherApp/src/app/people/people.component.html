@@ -1,4 +1,3 @@
-
 <div class="formClass">
   <form [formGroup]="form2">
     <select formControlName="peopleSelection" required>
@@ -19,5 +18,5 @@
   <h2 class="h2" data-cy="hair">Hair: {{p.hair_color}} </h2>
   <h2 class="h2" data-cy="eyes">Eyes: {{p.eye_color}} </h2>
   <h2 class="h2" data-cy="birth">Birth year: {{p.birth_year}} </h2>
-  <h2 class="h2" data-cy="gender">Gender: {{p.gender}} </h2>
+  <h2 class="h2" data-cy="gender">Gender: {{p.gender | genderemoji }} </h2>
 </div>
