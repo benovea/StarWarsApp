@@ -6,48 +6,28 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { shareReplay } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-planets',
   templateUrl: './planets.component.html',
-  styleUrls: ['./planets.component.scss']
+  styleUrls: ['./planets.component.scss'],
 })
-
-
 export class PlanetsComponent {
-
-
-  planets: Observable<PlanetData>;
-  allPlanets: Observable<PlanetData[]> = this.weatherService.getPlanets().pipe(
-    shareReplay());
-
-  nameFromUrl = this.route.snapshot.paramMap.get('name');
-  form = this.fb.group({
-    planetsSelection: [null, Validators.required]
-  });
-
-
   constructor(
     private weatherService: WeatherService,
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
-  ngOnInit() {
-    if (this.nameFromUrl) {
-      this.weatherService.findPlanetByName(this.nameFromUrl).subscribe((planet) => {
-        console.log(planet);
-        this.form.patchValue({
-          planetsSelection: planet.url
-        });
+  planets: Observable<PlanetData>;
+  allPlanets: Observable<PlanetData[]> = this.weatherService
+    .getPlanets()
+    .pipe(shareReplay());
 
-        this.router.navigate(['planets', planet.name]);
-        // this.handleEvent(planet.url);
-      });
-    }
-  }
-
+  nameFromUrl = this.route.snapshot.paramMap.get('name');
+  form = this.fb.group({
+    planetsSelection: [null, Validators.required],
+  });
 
   // handleEvent(url: string) {
   //   //console.log(url);
@@ -57,17 +37,30 @@ export class PlanetsComponent {
   //   });
   // }
 
-
-  valueChanges = this.form.get('planetsSelection').valueChanges.subscribe(changes => {
-    //console.log(changes);
-    this.weatherService.findPlanetByUrl(changes).subscribe((planet) => {
-      this.planets = this.weatherService.getWeatherForPlanet(planet.url);
-      this.router.navigate(['planets', planet.name]);
+  valueChanges = this.form
+    .get('planetsSelection')
+    .valueChanges.subscribe((changes) => {
+      // console.log(changes);
+      this.weatherService.findPlanetByUrl(changes).subscribe((planet) => {
+        this.planets = this.weatherService.getWeatherForPlanet(planet.url);
+        this.router.navigate(['planets', planet.name]);
+      });
+      this.planets = this.weatherService.getWeatherForPlanet(changes);
     });
-    this.planets = this.weatherService.getWeatherForPlanet(changes);
-  });
 
+  ngOnInit() {
+    if (this.nameFromUrl) {
+      this.weatherService
+        .findPlanetByName(this.nameFromUrl)
+        .subscribe((planet) => {
+          console.log(planet);
+          this.form.patchValue({
+            planetsSelection: planet.url,
+          });
 
-
-
+          this.router.navigate(['planets', planet.name]);
+          // this.handleEvent(planet.url);
+        });
+    }
+  }
 }

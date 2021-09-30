@@ -4,6 +4,7 @@ import {
   TestBed,
 } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { of } from 'rxjs';
 import { GenderEmojiPipe } from './gender-emoji.pipe';
 import { mockPeople, PeopleTestingModule } from './people-testing.module';
 import { PeopleComponentClass } from './people.component';
@@ -27,6 +28,7 @@ describe('PeopleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PeopleComponentClass);
     component = fixture.componentInstance;
+    component.people = of(mockPeople);
     fixture.detectChanges();
   });
 
@@ -35,10 +37,6 @@ describe('PeopleComponent', () => {
   });
 
   it('should show relevant data', () => {
-    component.form2.patchValue({
-      peopleSelection: 'foo',
-    });
-
     fixture.detectChanges();
 
     const name: HTMLHeadingElement =
