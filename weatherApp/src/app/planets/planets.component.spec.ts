@@ -36,6 +36,10 @@ describe('PlanetsComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    fixture.destroy();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -64,4 +68,9 @@ describe('PlanetsComponent', () => {
     expect(water.textContent).toContain(mockPlanet.surface_water);
     expect(day.textContent).toContain(`${mockPlanet.rotation_period}`);
   }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
 });

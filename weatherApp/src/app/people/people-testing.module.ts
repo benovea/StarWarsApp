@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PeopleData } from './PeopleData';
 import { PeopleService } from './people.service';
-import { GenderEmojiPipe } from './gender-emoji.pipe';
 
 export const mockPeople: PeopleData = {
   url: 'http:',
