@@ -3,16 +3,11 @@ import { TestBed } from '@angular/core/testing';
 import { WeatherService } from './_services/weather.service';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
+xdescribe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-
+      imports: [HttpClientTestingModule],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -27,6 +22,4 @@ describe('AppComponent', () => {
   //   const app = fixture.componentInstance;
   //   expect(app.title).toEqual('weatherApp');
   // });
-
-
 });
